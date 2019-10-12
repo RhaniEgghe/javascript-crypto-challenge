@@ -12,3 +12,8 @@ describe('signing module', () => {
     expect(nacl.crypto_sign_open(signedMsg, verifyingKey)).toEqual(msg)
   })
 })
+/*
+The crypto_sign_open() function checks that the signed message has a valid signature for the public key.
+
+NaCl (pronounced "salt") is an abbreviation for "Networking and Cryptography library", a public domain "...high-speed software library for network communication, encryption, decryption, signatures, etc".
+*/
