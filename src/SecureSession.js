@@ -25,7 +25,7 @@ module.exports.setClientPublicKey = function(key)
     /* Generate shared keys */
     sharedKeys = _sodium.crypto_kx_server_session_keys(publicKey,privateKey,key);  
     
-    /* Set rx (shared secret key) & tx */
+    /* Set rx (shared secret key) & tx  send data and receive data */
     rx = sharedKeys.sharedRx;
     tx = sharedKeys.sharedTx;
 }
