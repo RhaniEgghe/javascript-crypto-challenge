@@ -7,11 +7,11 @@ var clientKey = null;
 
 module.exports.setClientPublicKey = function(key)
 {
-    /* Our key is already set */
+    /* client public key already set */
     if (clientKey === key)
         return;
 
-    /* Do not allow key modification */
+    /* does not allow us to modify our public key */
     if ((clientKey !== null) && (clientKey !== key))
         throw 'client public key already set';
 
@@ -52,6 +52,7 @@ module.exports.encrypt = async function(msg)
     await _sodium.ready;
 
     /* Generate nonce & encrypt */
+    /* https://libsodium.gitbook.io/doc/public-key_cryptography/authenticated_encryption*/
     nonce = _sodium.randombytes_buf(_sodium.crypto_secretbox_NONCEBYTES)
     ciphertext = _sodium.crypto_secretbox_easy(msg, nonce, tx)
 
